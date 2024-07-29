@@ -20,7 +20,7 @@ export default defineNuxtConfig({
 
    runtimeConfig: {
       public: {
-         apiBaseUrl: 'http://admin.fireprotection.uz'
+         apiBaseUrl: process.env.API_BASE_URL || 'http://admin.fireprotection.uz'
       }
    },
 
