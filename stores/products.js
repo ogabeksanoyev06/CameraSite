@@ -15,7 +15,7 @@ export const useProductsStore = defineStore('products', () => {
 
    async function getProductId(id) {
       try {
-         const response = await api.get(`api/products/${id}`);
+         const response = await api.get(`/api/products/${id}`);
          return response.data;
       } catch (error) {
          console.log(error);

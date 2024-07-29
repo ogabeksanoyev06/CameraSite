@@ -915,72 +915,72 @@ const _routes = [
   {
     name: "about___uz",
     path: "/about",
-    component: () => import('./index-C2jqcn-S.mjs').then((m) => m.default || m)
+    component: () => import('./index-DhgbMMss.mjs').then((m) => m.default || m)
   },
   {
     name: "about___ru",
     path: "/ru/about",
-    component: () => import('./index-C2jqcn-S.mjs').then((m) => m.default || m)
+    component: () => import('./index-DhgbMMss.mjs').then((m) => m.default || m)
   },
   {
     name: "contacts___uz",
     path: "/contacts",
-    component: () => import('./index-B-Ltqe90.mjs').then((m) => m.default || m)
+    component: () => import('./index-DtOXigQ2.mjs').then((m) => m.default || m)
   },
   {
     name: "contacts___ru",
     path: "/ru/contacts",
-    component: () => import('./index-B-Ltqe90.mjs').then((m) => m.default || m)
+    component: () => import('./index-DtOXigQ2.mjs').then((m) => m.default || m)
   },
   {
     name: "index___uz",
     path: "/",
-    component: () => import('./index-BQnAKA6K.mjs').then((m) => m.default || m)
+    component: () => import('./index-DgHyXr0b.mjs').then((m) => m.default || m)
   },
   {
     name: "index___ru",
     path: "/ru",
-    component: () => import('./index-BQnAKA6K.mjs').then((m) => m.default || m)
+    component: () => import('./index-DgHyXr0b.mjs').then((m) => m.default || m)
   },
   {
     name: "portfolio___uz",
     path: "/portfolio",
-    component: () => import('./index-CdCSvX7N.mjs').then((m) => m.default || m)
+    component: () => import('./index-DnoAuYOb.mjs').then((m) => m.default || m)
   },
   {
     name: "portfolio___ru",
     path: "/ru/portfolio",
-    component: () => import('./index-CdCSvX7N.mjs').then((m) => m.default || m)
+    component: () => import('./index-DnoAuYOb.mjs').then((m) => m.default || m)
   },
   {
     name: "products___uz",
     path: "/products",
-    component: () => import('./index-t5y_MMrF.mjs').then((m) => m.default || m)
+    component: () => import('./index-NzKI4PvD.mjs').then((m) => m.default || m)
   },
   {
     name: "products___ru",
     path: "/ru/products",
-    component: () => import('./index-t5y_MMrF.mjs').then((m) => m.default || m)
+    component: () => import('./index-NzKI4PvD.mjs').then((m) => m.default || m)
   },
   {
     name: "services-1___uz",
     path: "/services/1",
-    component: () => import('./1-CT42ZR0o.mjs').then((m) => m.default || m)
+    component: () => import('./1-BMlo0FNQ.mjs').then((m) => m.default || m)
   },
   {
     name: "services-1___ru",
     path: "/ru/services/1",
-    component: () => import('./1-CT42ZR0o.mjs').then((m) => m.default || m)
+    component: () => import('./1-BMlo0FNQ.mjs').then((m) => m.default || m)
   },
   {
     name: "services-2___uz",
     path: "/services/2",
-    component: () => import('./2-DCk3v2e0.mjs').then((m) => m.default || m)
+    component: () => import('./2-WyuyL8PX.mjs').then((m) => m.default || m)
   },
   {
     name: "services-2___ru",
     path: "/ru/services/2",
-    component: () => import('./2-DCk3v2e0.mjs').then((m) => m.default || m)
+    component: () => import('./2-WyuyL8PX.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
@@ -8362,7 +8362,7 @@ const __nuxt_component_1 = defineComponent({
   }
 });
 const layouts = {
-  default: () => import('./default-CXepFYny.mjs').then((m) => m.default || m)
+  default: () => import('./default-CvwI2Zju.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",

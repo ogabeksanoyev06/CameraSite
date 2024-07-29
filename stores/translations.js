@@ -9,7 +9,7 @@ export const useTranslationStore = defineStore('translations', () => {
 
    async function getTranslation() {
       try {
-         let res = await api.get(`api/translations/${locale.value}`);
+         let res = await api.get(`/api/translations/${locale.value}`);
          translations.value = res.data;
       } catch (error) {
          console.log(error);

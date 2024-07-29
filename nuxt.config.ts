@@ -20,7 +20,7 @@ export default defineNuxtConfig({
 
    runtimeConfig: {
       public: {
-         apiBaseUrl: 'https://admin.verel-auto.uz'
+         apiBaseUrl: 'http://admin.fireprotection.uz'
       }
    },
 
