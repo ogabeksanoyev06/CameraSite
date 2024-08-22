@@ -9,22 +9,43 @@
                </NuxtLink>
                <nav class="hidden lg:flex items-center gap-1 text-sm font-medium">
                   <NuxtLink :to="localePath('/about')"
-                     class="aa lg:px-3 xl:px-4 py-2 relative nav z-10 rounded-lg text-white">
+                     class="aa lg:px-3 xl:px-4 py-2 relative nav z-10 rounded-lg text-white whitespace-nowrap">
                      {{ translations['header.about'] }}
                   </NuxtLink>
-                  <HoverCard :open-delay="200" :close-delay="300">
-                     <HoverCardTrigger>
-                        <div class="lg:px-3 xl:px-4 py-2 relative nav z-10 rounded-lg text-white cursor-pointer">
+                  <DropdownMenu v-model:open="isServiceDropdownOpen">
+                     <DropdownMenuTrigger @click="toggleServiceDropdown" class="flex items-center gap-2">
+                        <div
+                           class="lg:px-3 xl:px-4 py-2 relative nav z-10 rounded-lg text-white cursor-pointer flex gap-2">
                            {{ translations['header.services'] }}
+                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                              fill="none" class="transition-transform duration-300 flex-shrink-0"
+                              :class="{ 'rotate-180': isDropdownOpen }">
+                              <path d="M5.83301 8.33333L9.99967 11.6667L14.1663 8.33333" stroke="white"
+                                 stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                           </svg>
                         </div>
-                     </HoverCardTrigger>
-                     <HoverCardContent class="flex flex-col gap-1 p-0 whitespace-nowrap w-full">
-                        <NuxtLink v-for="service in services" :key="service?.id" :to="localePath(`/services/${service?.id}`)"
-                           class="lg:px-3 hover:text-primary xl:px-4 py-1 relative nav z-10 rounded-lg text-black">
+                     </DropdownMenuTrigger>
+                     <DropdownMenuContent>
+                        <DropdownMenuItem @click="router.push(localePath('/services/' + service?.id))"
+                           v-for="service in services" class="flex items-center gap-2 cursor-pointer">
                            {{ service?.title[locale] }}
-                        </NuxtLink>
-                     </HoverCardContent>
-                  </HoverCard>
+                        </DropdownMenuItem>
+                     </DropdownMenuContent>
+                  </DropdownMenu>
+                  <!-- <HoverCard :open-delay="200" :close-delay="300">
+                        <HoverCardTrigger>
+                           <div class="lg:px-3 xl:px-4 py-2 relative nav z-10 rounded-lg text-white cursor-pointer">
+                              {{ translations['header.services'] }}
+                           </div>
+                        </HoverCardTrigger>
+                        <HoverCardContent class="flex flex-col gap-1 p-0 whitespace-nowrap w-full">
+                           <NuxtLink v-for="service in services" :key="service?.id"
+                              :to="localePath(`/services/${service?.id}`)"
+                              class="lg:px-3 hover:text-primary xl:px-4 py-1 relative nav z-10 rounded-lg text-black">
+                              {{ service?.title[locale] }}
+                           </NuxtLink>
+                        </HoverCardContent>
+                     </HoverCard> -->
 
                   <NuxtLink :to="localePath('/portfolio')"
                      class="aa lg:px-3 xl:px-4 py-2 relative nav z-10 rounded-lg text-white">
@@ -90,7 +111,7 @@
                               <AccordionTrigger class="hover:no-underline font-normal rounded-md px-4 py-2"> {{
                                  translations['header.services'] }}
                               </AccordionTrigger>
-                              <AccordionContent v-for="service in services" :key="service?.id">
+                              <AccordionContent class="ml-8" v-for="service in services" :key="service?.id">
                                  <SheetClose as-child>
                                     <NuxtLink :to="`/services/${service?.id}`" class="rounded-md">
                                        {{ service?.title[locale] }}</NuxtLink>
@@ -115,15 +136,21 @@
 
                   <SheetFooter>
                      <div class="flex flex-col w-full">
-                        <div
-                           class="flex items-center gap-2 bg-muted py-2 px-2 rounded-tl rounded-tr border-b cursor-pointer">
-                           <img src="/assets/svg/uz-flag.svg" alt="" />
-                           <span>O‘zbek</span>
-                        </div>
-                        <div class="flex items-center gap-2 bg-muted py-2 px-2 rounded-bl rounded-br cursor-pointer">
-                           <img src="/assets/svg/ru-flag.svg" alt="" />
-                           <span>Русский</span>
-                        </div>
+                        <SheetClose as-child>
+                           <div @click="selectLang(langs[0])"
+                              class="flex items-center gap-2 bg-muted py-2 px-2 rounded-tl rounded-tr border-b cursor-pointer">
+                              <img src="/assets/svg/uz-flag.svg" alt="" />
+                              <span>O‘zbek</span>
+                           </div>
+                        </SheetClose>
+
+                        <SheetClose as-child>
+                           <div @click="selectLang(langs[1])"
+                              class="flex items-center gap-2 bg-muted py-2 px-2 rounded-bl rounded-br cursor-pointer">
+                              <img src="/assets/svg/ru-flag.svg" alt="" />
+                              <span>Русский</span>
+                           </div>
+                        </SheetClose>
                      </div>
                   </SheetFooter>
                </SheetContent>
@@ -181,6 +208,8 @@ const { getServices } = servicesStore;
 const services = await getServices();
 
 const route = useRoute();
+const router = useRouter();
+
 const showDropdown = ref(false);
 
 const localePath = useLocalePath();
@@ -191,9 +220,14 @@ const { getTranslation } = translationsStore;
 const { translations } = storeToRefs(translationsStore);
 
 const isDropdownOpen = ref(false);
+const isServiceDropdownOpen = ref(false);
 
 const toggleDropdown = () => {
    isDropdownOpen.value = !isDropdownOpen.value;
+};
+
+const toggleServiceDropdown = () => {
+   isServiceDropdownOpen.value = !isServiceDropdownOpen.value;
 };
 
 // langs

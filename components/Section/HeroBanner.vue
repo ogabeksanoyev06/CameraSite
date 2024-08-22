@@ -20,12 +20,13 @@
                   <DialogContent class="sm:max-w-[700px] p-10 !rounded-3xl">
                      <div class="flex flex-col gap-10">
                         <div class="flex flex-col gap-3 md:gap-6">
-                           <h2 class="text-lg md:text-2xl xl:text-3xl font-semibold">{{translations['form.title']}}</h2>
+                           <h2 class="text-lg md:text-2xl xl:text-3xl font-semibold">{{ translations['form.title'] }}
+                           </h2>
                            <div class="flex items-center gap-4">
                               <img src="/assets/images/2.png" alt="" class="w-10 h-10 object-cover rounded-full" />
                               <div class="flex flex-col gap-2">
-                                 <p class="text-base font-medium">{{translations['form.manager']}}</p>
-                                 <p class="text-xs">{{translations['form.phone']}}</p>
+                                 <p class="text-base font-medium">{{ translations['form.manager'] }}</p>
+                                 <p class="text-xs">{{ translations['form.phone'] }}</p>
                               </div>
                            </div>
                         </div>
@@ -44,13 +45,14 @@
                         </div>
                         <div class="flex sm:items-center justify-between sm:flex-row flex-col gap-5">
                            <div class="flex items-center space-x-2">
-                              <Checkbox id="agreee" v-model="form.agree" @update:checked="form.agree = !form.agree" :checked="form.agree" />
-                              <Label for="agreee" class="text-base leading-none"> {{translations['form.confirm']}}
+                              <Checkbox id="agreee" v-model="form.agree" @update:checked="form.agree = !form.agree"
+                                 :checked="form.agree" />
+                              <Label for="agreee" class="text-base leading-none"> {{ translations['form.confirm'] }}
                               </Label>
                            </div>
                            <Button type="submit" :disabled="!isFormValid"
                               class="sm:max-w-[300px] w-full max-sm:px-3 max-sm:py-2">
-                              <span class="text-base"> {{translations['form.send']}} </span>
+                              <span class="text-base"> {{ translations['form.send'] }} </span>
                               <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                  <path d="M5.83301 5.83337L9.16634 10L5.83301 14.1667" stroke="white" stroke-width="1.5"
@@ -63,12 +65,12 @@
                      </form>
                   </DialogContent>
                </Dialog>
-               <Button @click="$router.push(localePath('/about'))" variant="outline">{{ translations['main.btn1']
+               <Button class="text-white" @click="$router.push(localePath('/about'))" variant="outline">{{ translations['main.btn1']
                   }}</Button>
             </div>
          </div>
          <div class="lg:order-2 order-1">
-            <img src="/assets/images/Rectangle 78.png" alt=""
+            <img :src="'https://admin.fireprotection.uz/storage/' + banners[banners.length - 1]?.photo" alt="hero"
                class="lg:max-w-[700px] lg:h-[400px] w-full object-cover ml-auto rounded-lg" />
          </div>
       </div>
@@ -78,6 +80,13 @@
 <script setup>
 import { useTranslationStore } from '~/stores/translations';
 import { useAplicationStore } from '~/stores/application.js';
+import { useBannerStore } from '~/stores/banners.js';
+
+const bannerStore = useBannerStore();
+
+const { getGallery } = bannerStore;
+
+const banners = await getGallery();
 
 const localePath = useLocalePath();
 

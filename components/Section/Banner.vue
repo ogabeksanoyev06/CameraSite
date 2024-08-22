@@ -36,7 +36,7 @@ const setTitle = () => {
          title.value = translations.value['service.test'];
          break;
       case localePath('/services/3'):
-         title.value = translations['service.test'];
+         title.value = translations.value['service.test2'];
          break;
       case localePath('/portfolio'):
          title.value = translations.value['header.portfolio'];

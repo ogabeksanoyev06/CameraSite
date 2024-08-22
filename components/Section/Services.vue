@@ -5,10 +5,12 @@
             {{ translations['main.service_title'] }}
          </h1>
          <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
-            <div v-for="service in services" :key="service?.id"
-               class="flex xl:items-center flex-col lg:flex-row gap-4 lg:gap-8 overflow-hidden relative p-4 lg:p-8 xl:p-12 bg-white rounded-[24px]">
-               <img :src="`https://admin.fireprotection.uz/storage/${service?.photo}`" alt=""
+            <div  v-for="service in services" :key="service?.id"
+               class="background-custom flex xl:items-center flex-col lg:flex-row gap-4 lg:gap-8 overflow-hidden relative p-4 lg:p-8 xl:p-12 bg-white rounded-[24px]">
+               <img v-if="service?.id == 1" src="/assets/images/1.gif" alt="" class="w-24 h-24 sm:w-28 sm:h-28" />
+               <img v-if="service?.id == 3 || service?.id == 2" src="/assets/images/2.gif" alt=""
                   class="w-24 h-24 sm:w-28 sm:h-28" />
+
                <div class="flex flex-col items-start gap-4 sm:gap-6">
                   <h3 class="text-xl xl:text-2xl">{{ service?.title[locale] }}</h3>
                   <Button @click="$router.push(localePath('/services/' + service?.id))" variant="link" class="p-0">
@@ -63,3 +65,11 @@ console.log(services.value);
 
 const localePath = useLocalePath();
 </script>
+
+<style scoped>
+.background-custom {
+   background: url('~/assets/images/bg.svg');
+   background-position: right;
+   background-size: cover;
+}
+</style>

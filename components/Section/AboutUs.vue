@@ -1,13 +1,13 @@
 <template>
-   <div>
+   <div class="background-custom">
       <div class="grid grid-cols-1 items-center lg:grid-cols-2 gap-20">
          <div class="relative md:h-[550px] max-w-[820px] clip-path-custom">
             <img src="/assets/images/abc.jpg" alt="" class="h-full w-full object-cover" />
-            <div class="absolute inset-0 bg-primary/70"></div>
+            <div class="absolute inset-0 bg-[#F3C318]/70"></div>
             <div
                class="absolute inset-0 flex flex-col justify-between gap-6 px-4 ml-auto max-w-[500px] items-start text-white py-20">
                <div>
-                  <h2 class="text-2xl md:text-4xl font-bold">
+                  <h2 class="text-2xl md:text-5xl font-medium">
                      {{ translations['main.about_title2'] }}
                   </h2>
                   <p class="text-md md:text-lg mt-2">
@@ -90,7 +90,7 @@
                   <span> {{ translations['main.about_text4'] }}</span>
                </div>
             </div>
-            <Button @click="$router.push(localePath('/about'))" variant="outline">
+            <Button class="border-primary" @click="$router.push(localePath('/about'))" variant="outline">
                <span> {{ translations['main.btn1'] }}</span>
                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                   <path d="M5.83337 5.83301L9.16671 9.99967L5.83337 14.1663" stroke="#F2C94C" stroke-width="1.5"
@@ -114,7 +114,11 @@ const { translations } = storeToRefs(translationsStore);
 <style scoped>
 @media (min-width: 768px) {
    .clip-path-custom {
-      clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%);
+      clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 0% 100%);
    }
+}
+
+.background-custom {
+   background: url('~/assets/images/bg.svg');
 }
 </style>

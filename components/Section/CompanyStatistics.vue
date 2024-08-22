@@ -10,19 +10,19 @@
       </div>
       <div class="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-10">
          <div class="p-4 md:p-8 xl:p-10 flex flex-col gap-2 rounded-2xl bg-gray-100">
-            <h1 class="text-[40px] font-medium">90</h1>
+            <h1 class="text-[40px] font-medium">{{translations['main.statistics_card_num1']}}</h1>
             <p class="text-base text-gray-900">{{ translations['main.statistics_card_text1'] }}</p>
          </div>
          <div class="p-4 md:p-8 xl:p-10 flex flex-col gap-2 rounded-2xl bg-gray-100">
-            <h1 class="text-[40px] font-medium">250+</h1>
+            <h1 class="text-[40px] font-medium">{{translations['main.statistics_card_num2']}}</h1>
             <p class="text-base text-gray-900">{{ translations['main.statistics_card_text2'] }}</p>
          </div>
          <div class="p-4 md:p-8 xl:p-10 flex flex-col gap-2 rounded-2xl bg-gray-100">
-            <h1 class="text-[40px] font-medium">90</h1>
+            <h1 class="text-[40px] font-medium">{{translations['main.statistics_card_num3']}}</h1>
             <p class="text-base text-gray-900">{{ translations['main.statistics_card_text3'] }}</p>
          </div>
          <div class="p-4 md:p-8 xl:p-10 flex flex-col gap-2 rounded-2xl bg-gray-100">
-            <h1 class="text-[40px] font-medium">90</h1>
+            <h1 class="text-[40px] font-medium">{{translations['main.statistics_card_num4']}}</h1>
             <p class="text-base text-gray-900">{{ translations['main.statistics_card_text4'] }}</p>
          </div>
       </div>

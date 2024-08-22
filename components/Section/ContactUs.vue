@@ -48,7 +48,7 @@
                </div>
             </div>
             <div
-               class="md:h-[460px] max-w-[920px] relative before:absolute before:bg-primary/80 before:inset-0 before:w-full before:h-full clip-path-custom">
+               class="md:h-[460px] max-w-[920px] relative before:absolute before:bg-[#F3C318]/70 before:inset-0 before:w-full before:h-full clip-path-custom">
                <img src="/assets/images/abc.jpg" alt="" class="h-full w-full object-cover" />
             </div>
          </div>
@@ -110,7 +110,7 @@ const submitForm = () => {
 
 @media (min-width: 768px) {
    .clip-path-custom {
-      clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+      clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
    }
 }
 </style>

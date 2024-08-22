@@ -6,6 +6,15 @@ export const useBannerStore = defineStore('banner', () => {
 
    async function getBanners() {
       try {
+         const response = await api.get('/api/banners');
+         return response.data;
+      } catch (error) {
+         console.log(error);
+      }
+   }
+
+   async function getGallery() {
+      try {
          const response = await api.get('/api/gellery');
          return response.data;
       } catch (error) {
@@ -14,6 +23,7 @@ export const useBannerStore = defineStore('banner', () => {
    }
 
    return {
-      getBanners
+      getBanners,
+      getGallery
    };
 });
