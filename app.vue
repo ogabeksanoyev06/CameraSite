@@ -7,9 +7,11 @@ const useIdFunction = () => useId();
 <template>
    <div>
       <NuxtLoadingIndicator />
-      <NuxtRouteAnnouncer />
+
       <ConfigProvider :use-id="useIdFunction">
-         <NuxtLayout> <NuxtPage /> </NuxtLayout>
+         <NuxtLayout>
+            <NuxtPage />
+         </NuxtLayout>
       </ConfigProvider>
    </div>
 </template>

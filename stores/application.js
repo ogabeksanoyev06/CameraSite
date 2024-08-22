@@ -11,7 +11,7 @@ export const useAplicationStore = defineStore('aplication', () => {
    async function sendAplication(params) {
       loading.value = true;
       try {
-         const response = await api.post('/api/zayavkas', params);
+         await api.post('/api/zayavkas', params);
          showToast('Arizangiz yuborildi', 'success');
       } catch (error) {
          showToast('Xatolik sodir boldi', 'error');

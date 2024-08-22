@@ -1,11 +1,11 @@
 <template>
    <div class="flex min-h-screen flex-col">
       <LayoutHeader />
-      <div class="flex-1">
-         <main>
-            <slot />
-         </main>
-      </div>
+
+      <main>
+         <slot />
+      </main>
+
       <LayoutFooter />
    </div>
 </template>
@@ -19,11 +19,7 @@ const translationsStore = useTranslationStore();
 
 const { getTranslation } = translationsStore;
 
-const { data } = await useAsyncData(
-   'translations',
-   () => {
-      return getTranslation();
-   },
-   { watch: [locale] }
-);
+await getTranslation();
+
+watch(locale, async () => await getTranslation(), { deep: true });
 </script>

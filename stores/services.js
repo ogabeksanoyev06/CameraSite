@@ -12,7 +12,17 @@ export const useServicesStore = defineStore('services', () => {
          console.log(error);
       }
    }
+
+   async function getServiceById(id) {
+      try {
+         const response = await api.get('/api/services/' + id);
+         return response.data;
+      } catch (error) {
+         console.log(error);
+      }
+   }
+
    return {
-      getServices
+      getServices, getServiceById
    };
 });

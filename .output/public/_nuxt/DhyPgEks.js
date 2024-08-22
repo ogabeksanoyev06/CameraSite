@@ -1,0 +1,1 @@
+import{d as c}from"./Bk-OGa0e.js";import{u as n}from"./DPEcGcQd.js";const p=c("services",()=>{const r=n();async function t(){try{return(await r.get("/api/services")).data}catch(e){console.log(e)}}async function o(e){try{return(await r.get("/api/services/"+e)).data}catch(s){console.log(s)}}return{getServices:t,getServiceById:o}});export{p as u};

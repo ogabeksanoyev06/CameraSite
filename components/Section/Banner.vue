@@ -16,30 +16,36 @@
 import { useRoute } from 'vue-router';
 const route = useRoute();
 const localePath = useLocalePath();
+import { useTranslationStore } from '~/stores/translations';
+
+const translationsStore = useTranslationStore();
+const { translations } = storeToRefs(translationsStore);
 
 const bannerM = ref(false);
 
 const title = ref('');
 
 const setTitle = () => {
+   if (!translations.value) return; // Ensure translations are loaded
+
    switch (route.path) {
       case localePath('/about'):
-         title.value = 'Kompaniya haqida';
+         title.value = translations.value['header.about'];
          break;
       case localePath('/services/1'):
-         title.value = 'Yong‘in signalizatsiya tizimlarini o‘rnatish xizmati';
+         title.value = translations.value['service.test'];
          break;
-      case localePath('/services/2'):
-         title.value = 'Kuzatuv kameralar tizimlarini o‘rnatish xizmati';
+      case localePath('/services/3'):
+         title.value = translations['service.test'];
          break;
       case localePath('/portfolio'):
-         title.value = 'Muvaffaqiyatli yakunlagan ishlarimiz';
+         title.value = translations.value['header.portfolio'];
          break;
       case localePath('/products'):
-         title.value = 'Mahsulotlarimiz';
+         title.value = translations.value['header.products'];
          break;
       case localePath('/contacts'):
-         title.value = 'Hoziroq so‘rov qoldiring!';
+         title.value = translations.value['header.contacts'];
          break;
       default:
          title.value = 'Bosh sahifa';
@@ -47,9 +53,11 @@ const setTitle = () => {
 };
 
 watch(
-   () => route.path,
+   [() => route.path, () => translations.value],
    () => {
       setTitle();
+      console.log(translations.value['header.about']);
+
    },
    { immediate: true }
 );

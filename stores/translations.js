@@ -15,6 +15,7 @@ export const useTranslationStore = defineStore('translations', () => {
          console.log(error);
       }
    }
+
    return {
       getTranslation,
       translations

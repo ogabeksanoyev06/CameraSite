@@ -20,13 +20,12 @@
                   <DialogContent class="sm:max-w-[700px] p-10 !rounded-3xl">
                      <div class="flex flex-col gap-10">
                         <div class="flex flex-col gap-3 md:gap-6">
-                           <h2 class="text-lg md:text-2xl xl:text-3xl font-semibold">Qisqa vaqt ichida mutaxasisslar
-                              tomonidan bepul konsultatsiya oling!</h2>
+                           <h2 class="text-lg md:text-2xl xl:text-3xl font-semibold">{{translations['form.title']}}</h2>
                            <div class="flex items-center gap-4">
                               <img src="/assets/images/2.png" alt="" class="w-10 h-10 object-cover rounded-full" />
                               <div class="flex flex-col gap-2">
-                                 <p class="text-base font-medium">Baxtjon Chapaev</p>
-                                 <p class="text-xs">+998 99 165 32 45</p>
+                                 <p class="text-base font-medium">{{translations['form.manager']}}</p>
+                                 <p class="text-xs">{{translations['form.phone']}}</p>
                               </div>
                            </div>
                         </div>
@@ -35,9 +34,9 @@
                         <div class="flex sm:items-center justify-between sm:flex-row flex-col gap-5">
                            <input type="text" v-model="form.first_name" maxlength="30"
                               class="w-full h-full text-base sm:text-sm border-b border-grey-100 bg-transparent transition-300 py-3 outline-none placeholder:[#9A999B] placeholder:text-base"
-                              placeholder="Ism familyangiz" required />
+                              :placeholder="translations['form.input-name']" required />
                            <ClientOnly>
-                              <input type="text" placeholder="Telefon raqamingiz" v-model="form.phone"
+                              <input type="text" :placeholder="translations['form.input-phone']" v-model="form.phone"
                                  v-maska="'+998 ## ###-##-##'"
                                  class="w-full h-full text-base sm:text-sm border-b border-grey-100 bg-transparent transition-300 py-3 outline-none placeholder:[#9A999B] placeholder:text-base"
                                  minlength="16" required />
@@ -45,13 +44,13 @@
                         </div>
                         <div class="flex sm:items-center justify-between sm:flex-row flex-col gap-5">
                            <div class="flex items-center space-x-2">
-                              <Checkbox id="agreee" v-model="form.agree" @update:checked="form.agree = !form.agree" />
-                              <Label for="agreee" class="text-base leading-none"> Согласие с политикой обработки данных
+                              <Checkbox id="agreee" v-model="form.agree" @update:checked="form.agree = !form.agree" :checked="form.agree" />
+                              <Label for="agreee" class="text-base leading-none"> {{translations['form.confirm']}}
                               </Label>
                            </div>
                            <Button type="submit" :disabled="!isFormValid"
                               class="sm:max-w-[300px] w-full max-sm:px-3 max-sm:py-2">
-                              <span class="text-base"> Jo‘natish </span>
+                              <span class="text-base"> {{translations['form.send']}} </span>
                               <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                  <path d="M5.83301 5.83337L9.16634 10L5.83301 14.1667" stroke="white" stroke-width="1.5"
@@ -115,7 +114,7 @@ const submitForm = () => {
    if (isFormValid.value) {
       sendAplication({
          first_name: form.first_name,
-         phone_number: form.phone
+         phone_number: form.phone.replace(/[\s-]/g, '')
       });
       resetForm();
       openModal.value = false;

@@ -19,13 +19,9 @@
                         </div>
                      </HoverCardTrigger>
                      <HoverCardContent class="flex flex-col gap-1 p-0 whitespace-nowrap w-full">
-                        <NuxtLink :to="localePath('/services/1')"
+                        <NuxtLink v-for="service in services" :key="service?.id" :to="localePath(`/services/${service?.id}`)"
                            class="lg:px-3 hover:text-primary xl:px-4 py-1 relative nav z-10 rounded-lg text-black">
-                           {{translations['service.title1']}}
-                        </NuxtLink>
-                        <NuxtLink :to="localePath('/services/2')"
-                           class="lg:px-3 hover:text-primary xl:px-4 py-1 relative nav z-10 rounded-lg text-black">
-                           {{translations['service.title2']}}
+                           {{ service?.title[locale] }}
                         </NuxtLink>
                      </HoverCardContent>
                   </HoverCard>
@@ -86,35 +82,33 @@
                      </NuxtLink>
                      <nav class="flex nav-mobile flex-col text-left rounded-md bg-background py-4">
                         <SheetClose as-child>
-                           <NuxtLink to="/about" class="rounded-md px-4 py-2"> {{ translations['header.about'] }}</NuxtLink>
+                           <NuxtLink to="/about" class="rounded-md px-4 py-2"> {{ translations['header.about'] }}
+                           </NuxtLink>
                         </SheetClose>
                         <Accordion type="single" collapsible>
                            <AccordionItem value="item-1" class="border-none">
-                              <AccordionTrigger
-                                 class="hover:no-underline font-normal rounded-md px-4 py-2">  {{ translations['header.services'] }}
+                              <AccordionTrigger class="hover:no-underline font-normal rounded-md px-4 py-2"> {{
+                                 translations['header.services'] }}
                               </AccordionTrigger>
-                              <AccordionContent>
+                              <AccordionContent v-for="service in services" :key="service?.id">
                                  <SheetClose as-child>
-                                    <NuxtLink to="/services/1" class="rounded-md">Yong‘in signalizatsiya tizimlarini
-                                       o‘rnatish xizmati</NuxtLink>
-                                 </SheetClose>
-                              </AccordionContent>
-                              <AccordionContent>
-                                 <SheetClose as-child>
-                                    <NuxtLink to="/services/2" class="rounded-md">Kuzatuv kameralar tizimlarini
-                                       o‘rnatish xizmati</NuxtLink>
+                                    <NuxtLink :to="`/services/${service?.id}`" class="rounded-md">
+                                       {{ service?.title[locale] }}</NuxtLink>
                                  </SheetClose>
                               </AccordionContent>
                            </AccordionItem>
                         </Accordion>
                         <SheetClose as-child>
-                           <NuxtLink to="/portfolio" class="rounded-md px-4 py-2">{{ translations['header.portfolio'] }}</NuxtLink>
+                           <NuxtLink to="/portfolio" class="rounded-md px-4 py-2">{{ translations['header.portfolio'] }}
+                           </NuxtLink>
                         </SheetClose>
                         <SheetClose as-child>
-                           <NuxtLink to="/products" class="rounded-md px-4 py-2">{{ translations['header.products'] }}</NuxtLink>
+                           <NuxtLink to="/products" class="rounded-md px-4 py-2">{{ translations['header.products'] }}
+                           </NuxtLink>
                         </SheetClose>
                         <SheetClose as-child>
-                           <NuxtLink to="/contacts" class="rounded-md px-4 py-2">{{ translations['header.contacts'] }} </NuxtLink>
+                           <NuxtLink to="/contacts" class="rounded-md px-4 py-2">{{ translations['header.contacts'] }}
+                           </NuxtLink>
                         </SheetClose>
                      </nav>
                   </div>
@@ -180,6 +174,11 @@
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useTranslationStore } from '~/stores/translations.js';
+import { useServicesStore } from '~/stores/services.js';
+const servicesStore = useServicesStore();
+const { getServices } = servicesStore;
+
+const services = await getServices();
 
 const route = useRoute();
 const showDropdown = ref(false);
@@ -188,7 +187,7 @@ const localePath = useLocalePath();
 const { setLocale, locale } = useI18n();
 
 const translationsStore = useTranslationStore();
-
+const { getTranslation } = translationsStore;
 const { translations } = storeToRefs(translationsStore);
 
 const isDropdownOpen = ref(false);
@@ -214,6 +213,7 @@ const selectedLang = ref(langs.find((lang) => lang.id === locale.value));
 const selectLang = (lang) => {
    selectedLang.value = lang;
    setLocale(lang.id);
+
 };
 
 watch(selectedLang, (newVal) => {

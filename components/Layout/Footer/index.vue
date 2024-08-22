@@ -52,7 +52,7 @@
             </div>
          </div>
          <div class="border-t border-b py-6">
-            <p class="text-base">© 2021 Barcha huquqlar himoyalangan.</p>
+            <p class="text-base">{{ translations['footer.bottom'] }}</p>
          </div>
       </div>
    </footer>
