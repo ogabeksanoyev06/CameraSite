@@ -17,13 +17,16 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 const localePath = useLocalePath();
 import { useTranslationStore } from '~/stores/translations';
+import { useAppStore } from '~/stores/app';
 
 const translationsStore = useTranslationStore();
+const appStore = useAppStore();
+const { bannerTitle } = storeToRefs(appStore);
 const { translations } = storeToRefs(translationsStore);
 
 const bannerM = ref(false);
 
-const title = ref('');
+const title = ref("");
 
 const setTitle = () => {
    if (!translations.value) return; // Ensure translations are loaded
@@ -31,12 +34,6 @@ const setTitle = () => {
    switch (route.path) {
       case localePath('/about'):
          title.value = translations.value['header.about'];
-         break;
-      case localePath('/services/1'):
-         title.value = translations.value['service.test'];
-         break;
-      case localePath('/services/3'):
-         title.value = translations.value['service.test2'];
          break;
       case localePath('/portfolio'):
          title.value = translations.value['header.portfolio'];
@@ -48,12 +45,12 @@ const setTitle = () => {
          title.value = translations.value['header.contacts'];
          break;
       default:
-         title.value = 'Bosh sahifa';
+         title.value = bannerTitle.value;
    }
 };
 
 watch(
-   [() => route.path, () => translations.value],
+   [() => route.path, () => translations.value, () => bannerTitle.value],
    () => {
       setTitle();
       console.log(translations.value['header.about']);

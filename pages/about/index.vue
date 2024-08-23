@@ -1,4 +1,9 @@
 <template>
+
+   <Head>
+      <Title>About Us | Fireprotection</Title>
+   </Head>
+
    <div class="bg-white">
       <section class="bg-white mt-[80px] container">
          <div class="max-w-[1200px] w-full space-y-10 mb-20 mx-auto px-4">

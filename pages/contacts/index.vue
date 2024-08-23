@@ -1,4 +1,8 @@
 <template>
+   <Head>
+      <Title>Contacts | Fireprotection</Title>
+   </Head>
+
    <div>
       <section class="my-20">
          <div class="container">

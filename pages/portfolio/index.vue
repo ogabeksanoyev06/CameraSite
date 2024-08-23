@@ -1,4 +1,8 @@
 <template>
+   <Head>
+      <Title>Portfolio | Fireprotection</Title>
+   </Head>
+
    <div class="bg-background">
       <div class="container py-20">
          <section class="flex flex-col gap-10">

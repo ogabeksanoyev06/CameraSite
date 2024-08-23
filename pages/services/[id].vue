@@ -136,15 +136,16 @@ const route = useRoute();
 
 const translationsStore = useTranslationStore();
 
-const { translations } = storeToRefs(translationsStore);
+
+const { translations } = storeToRefs(translationsStore)
 
 const servicesStore = useServicesStore();
 
 const { getServiceById } = servicesStore;
 
 const { data: service } = useAsyncData('service', async () => {
-   return await getServiceById(route.params.id)
-}, { watch: [() => route.params.id] });
+   return await getServiceById(route.params.id);
+}, { watch: [() => route.params.id] })
 </script>
 
 <style>
