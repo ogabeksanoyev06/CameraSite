@@ -21,6 +21,7 @@ export const useProductsStore = defineStore('products', () => {
          console.log(error);
       }
    }
+   
 
    async function getProductsCategory(id) {
       try {

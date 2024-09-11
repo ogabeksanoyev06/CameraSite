@@ -1,7 +1,7 @@
 <template>
 
    <Head>
-      <Title>{{ service?.title[locale] ? service?.title[locale] : "Service | Fireprotection" }}</Title>
+      <Title>{{ service?.title[locale] ? service?.title[locale] : "Service | ENERGY MONTAJ GROUP" }}</Title>
    </Head>
 
    <div>

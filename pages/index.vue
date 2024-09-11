@@ -1,7 +1,7 @@
 <template>
 
    <Head>
-      <Title>Fireprotection</Title>
+      <Title>ENERGY MONTAJ GROUP</Title>
       <Meta name="description" content="FIREPROTECHTION bugungi kunda tajribali, ishonchli va oldindan aytib bo'ladigan biznes hamkori
          sifatida obro'ga ega bo'lgan barqaror va dinamik rivojlanayotgan tashkilotdir. Yillar davomida biz O'zbekistion
          Respublikasining yirik infratuzilma ob'ektlarida yong'in xavfsizligini ta'minlash sohasida eng murakkab

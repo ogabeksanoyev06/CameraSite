@@ -1,7 +1,8 @@
 <template>
    <div class="flex flex-col gap-2 bg-white rounded-2xl overflow-hidden group">
       <div class="overflow-hidden flex items-center justify-center w-full">
-         <img :src="`${useRuntimeConfig().public.apiBaseUrl}/site/images/products/${photo}`" class="group-hover:scale-105 transition-300" />
+         <img :src="`${useRuntimeConfig().public.apiBaseUrl}/site/images/products/${photo}`"
+            class="group-hover:scale-105 transition-300" />
       </div>
       <div class="p-2">
          <div class="flex flex-col items-start gap-4 bg-background p-6 rounded-2xl">

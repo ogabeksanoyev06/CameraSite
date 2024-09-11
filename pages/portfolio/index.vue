@@ -1,6 +1,6 @@
 <template>
    <Head>
-      <Title>Portfolio | Fireprotection</Title>
+      <Title>Portfolio | ENERGY MONTAJ GROUP</Title>
    </Head>
 
    <div class="bg-background">
@@ -36,13 +36,9 @@
 </template>
 
 <script setup>
-import { useTranslationStore } from '~/stores/translations.js';
 import { usePortfolioStore } from '~/stores/portfolio.js';
 
-const translationsStore = useTranslationStore();
 const portfolioStore = usePortfolioStore();
-
-const { translations } = storeToRefs(translationsStore);
 const { getPortfolios } = portfolioStore;
 
 const { data: portfolios } = await useAsyncData('portfolios', async () => {

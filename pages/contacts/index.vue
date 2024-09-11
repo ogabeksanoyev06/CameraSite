@@ -1,6 +1,6 @@
 <template>
    <Head>
-      <Title>Contacts | Fireprotection</Title>
+      <Title>Contacts | ENERGY MONTAJ GROUP</Title>
    </Head>
 
    <div>

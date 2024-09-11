@@ -1,7 +1,7 @@
 <template>
 
    <Head>
-      <Title>About Us | Fireprotection</Title>
+      <Title>About Us | ENERGY MONTAJ GROUP</Title>
    </Head>
 
    <div class="bg-white">
