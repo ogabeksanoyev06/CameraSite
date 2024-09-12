@@ -9,7 +9,7 @@
             <h3 class="text-base line-clamp-2">
                {{ title }}
             </h3>
-            <div class="text-sm line-clamp-2" v-html="subtitle" />
+            <div class="text-sm line-clamp-2 min-h-[40px]" v-html="subtitle" />
             <!-- <Button variant="link" class="!px-0 !py-0">
                <span>Batafsil ma’lumot</span>
                <span>

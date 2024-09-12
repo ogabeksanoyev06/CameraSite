@@ -11,7 +11,7 @@
                <div class="sticky top-10 border-r border-grey-200 pr-6">
                   <Accordion type="single" class="w-full" collapsible>
                      <h4 @click="setAllProducts" class="cursor-pointer mb-1"
-                        :class="{ 'font-bold': categoryId === null }">{{translations['main.all']}}</h4>
+                        :class="{ 'font-bold': categoryId === null }">{{ translations['main.all'] }}</h4>
                      <AccordionItem v-for="category in categories" class="border-none"
                         :value="'product' + category?.id">
                         <AccordionTrigger v-if="category?.product_category_id === null"
@@ -21,7 +21,7 @@
                         </AccordionTrigger>
                         <AccordionContent>
                            <ul>
-                              <li v-for="i in subCategory" @click="getProductsByCategory(i?.id)"
+                              <li v-for="i in category.product_categories" @click="getProductsByCategory(i?.id)"
                                  class="flex items-center justify-between cursor-pointer py-3"
                                  :class="{ 'font-semibold': i?.id === subCategoryId }">
                                  <span class="flex-1">
@@ -69,19 +69,20 @@ const productsStore = useProductsStore();
 const { getProductsCategories } = categoriesStore;
 const { getProducts, getProductsCategory } = productsStore;
 
-const subCategory = ref([]);
+const { data: categories } = useAsyncData("categories", async () => {
+   return await getProductsCategories();
+});
+
+const { data: productsData } = useAsyncData("products", async () => {
+   return await getProducts();
+});
 const products = ref([]);
 const subCategoryId = ref(null);
 const categoryId = ref(null);
 
 const activeSubCategory = (id) => {
-   subCategory.value = categories.value.filter((c) => c.product_category_id == id);
    categoryId.value = id;
 };
-
-const { data: productsData } = useAsyncData("products", async () => {
-   return await getProducts();
-});
 
 const getProductsByCategory = async (id) => {
    const newProducts = await getProductsCategory(id);
@@ -97,10 +98,4 @@ const setAllProducts = () => {
    subCategoryId.value = null;
    products.value = productsData.value;
 }
-
-const { data: categories } = useAsyncData("categories", async () => {
-   return await getProductsCategories();
-});
-
-
 </script>

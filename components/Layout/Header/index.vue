@@ -5,7 +5,7 @@
          <div class="flex items-center justify-between border-b border-gray-500 h-20">
             <div class="mr-4 md:mr-1 flex items-center">
                <NuxtLink :to="localePath('/')" class="mr-2 lg:mr-4">
-                  <img src="/assets/svg/logo.svg" alt="logo" />
+                  <img class="min-w-[180px]" src="/assets/svg/logo.svg"  alt="logo" />
                </NuxtLink>
                <nav class="hidden lg:flex items-center gap-1 text-sm font-medium">
                   <NuxtLink :to="localePath('/about')"
