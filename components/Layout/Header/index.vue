@@ -5,7 +5,7 @@
          <div class="flex items-center justify-between border-b border-gray-500 h-20">
             <div class="mr-4 md:mr-1 flex items-center">
                <NuxtLink :to="localePath('/')" class="mr-2 lg:mr-4">
-                  <img class="min-w-[180px]" src="/assets/svg/logo.svg"  alt="logo" />
+                  <img class="min-w-[180px]" src="/assets/svg/logo.svg" alt="logo" />
                </NuxtLink>
                <nav class="hidden lg:flex items-center gap-1 text-sm font-medium">
                   <NuxtLink :to="localePath('/about')"
@@ -27,7 +27,7 @@
                      </DropdownMenuTrigger>
                      <DropdownMenuContent>
                         <DropdownMenuItem @click="router.push(localePath('/services/' + service?.id))"
-                           v-for="service in services" class="flex items-center gap-2 cursor-pointer">
+                           v-for="service in services" class="flex items-center gap-2 cursor-pointer hover:!text-inherit" :class="{'text-primary': $route.path == localePath('/services/' + service?.id)}">
                            {{ service?.title[locale] }}
                         </DropdownMenuItem>
                      </DropdownMenuContent>
@@ -111,9 +111,10 @@
                               <AccordionTrigger class="hover:no-underline font-normal rounded-md px-4 py-2"> {{
                                  translations['header.services'] }}
                               </AccordionTrigger>
-                              <AccordionContent class="ml-8" v-for="service in services" :key="service?.id">
+                              <AccordionContent class="ml-6" v-for="service in services" :key="service?.id">
                                  <SheetClose as-child>
-                                    <NuxtLink :to="`/services/${service?.id}`" class="rounded-md">
+                                    <NuxtLink :to="`/services/${service?.id}`" 
+                                       class="rounded-md link p-1">
                                        {{ service?.title[locale] }}</NuxtLink>
                                  </SheetClose>
                               </AccordionContent>
@@ -155,7 +156,7 @@
                   </SheetFooter>
                </SheetContent>
             </Sheet>
-            <div class="hidden lg:flex flex-1 items-center justify-end space-x-4 xl:space-x-10">
+            <div class="ml-2 hidden lg:flex flex-1 items-center justify-end space-x-4 xl:space-x-10">
                <DropdownMenu v-model:open="isDropdownOpen">
                   <DropdownMenuTrigger @click="toggleDropdown" class="flex items-center gap-2">
                      <img src="/assets/svg/uz-flag.svg" alt="" v-if="selectedLang.id === 'uz'" />
@@ -293,12 +294,10 @@ onMounted(() => {
    transform: scale(100%);
 }
 
-nav .router-link-exact-active {
-   background-color: hsl(var(--primary));
-}
-
-.nav-mobile .router-link-exact-active {
-   background-color: hsl(var(--accent));
+nav a.router-link-exact-active {
+   color: #ffffff !important;
+   display: block !important;
+   background-color: #F2C94C !important;
 }
 
 @media (max-width: 1024px) {}
