@@ -2,7 +2,7 @@
    <div class="background-custom">
       <div class="grid grid-cols-1 items-center lg:grid-cols-2 gap-20">
          <div class="relative md:h-[550px] max-w-[820px] clip-path-custom">
-            <img src="/assets/images/abc.jpg" alt="" class="h-full w-full object-cover" />
+            <img src="~/assets/images/about.png" alt="" class="h-full w-full object-cover" />
             <div class="absolute inset-0 bg-[#F3C318]/70"></div>
             <div
                class="absolute inset-0 flex flex-col justify-between gap-6 px-4 ml-auto max-w-[500px] items-start text-white py-20">

@@ -2,7 +2,7 @@
 
    <Head>
       <Title>ENERGY MONTAJ GROUP</Title>
-      <Meta name="description" content="FIREPROTECHTION bugungi kunda tajribali, ishonchli va oldindan aytib bo'ladigan biznes hamkori
+      <Meta name="description" content="ENERGY MONTAJ GROUP bugungi kunda tajribali, ishonchli va oldindan aytib bo'ladigan biznes hamkori
          sifatida obro'ga ega bo'lgan barqaror va dinamik rivojlanayotgan tashkilotdir. Yillar davomida biz O'zbekistion
          Respublikasining yirik infratuzilma ob'ektlarida yong'in xavfsizligini ta'minlash sohasida eng murakkab
          vazifalarni hal qila oladigan mutaxassislar jamoasini shakllantirdik. Biz yong'in xavfsizligi bo'yicha to'liq
@@ -11,7 +11,7 @@
          rejalari tuzadi va yong'in auditi ham o'tkazadilar. Bizning kompaniyamizga murojaat qilgan holda, siz har
          qanday murakkablikdagi ob'ektlar uchun kafolatlangan himoya va xavfsizlikni olasiz." />
    </Head>
-   
+
    <div>
       <SectionHeroBanner />
       <SectionAboutUs />

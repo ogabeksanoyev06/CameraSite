@@ -70,7 +70,7 @@
             </div>
          </div>
          <div class="lg:order-2 order-1">
-            <img :src="'https://admin.fireprotection.uz/storage/' + banners[banners.length - 1]?.photo" alt="hero"
+            <img :src="'https://admin.energymontajgroup.uz/storage/' + banners[banners.length - 1]?.photo" alt="hero"
                class="lg:max-w-[700px] lg:h-[400px] w-full object-cover ml-auto rounded-lg" />
          </div>
       </div>

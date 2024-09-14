@@ -1,4 +1,5 @@
 <template>
+
    <Head>
       <Title>Contacts | ENERGY MONTAJ GROUP</Title>
    </Head>
@@ -21,13 +22,14 @@
                            required />
                      </ClientOnly>
                   </div>
-                  <textarea type="text" :placeholder="translations['form.input-message']" v-model="form.text"
+                  <textarea type="text" :placeholder="translations['form.input-message']" v-model="form.descriptions"
                      class="w-full h-full text-base sm:text-sm border-b border-grey-100 bg-transparent transition-300 py-3 outline-none placeholder:[#9A999B] placeholder:text-base"
                      required />
                   <div class="flex sm:items-center justify-between sm:flex-row flex-col gap-5">
                      <div class="flex items-center space-x-2 max-w-[300px]">
-                        <Checkbox id="agree" v-model="form.agree" @update:checked="form.agree = !form.agree" />
-                        <Label for="agree" class="text-base leading-none"> {{translations['form.confirm']}}
+                        <Checkbox id="agree" v-model="form.agree" @update:checked="form.agree = !form.agree"
+                           :checked="form.agree" />
+                        <Label for="agree" class="text-base leading-none"> {{ translations['form.confirm'] }}
                         </Label>
                      </div>
                      <Button type="submit" :disabled="!isFormValid">
@@ -45,23 +47,23 @@
                   <div class="flex flex-col gap-10">
                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="flex flex-col gap-4">
-                           <p class="text-base text-[#778391]">{{translations['form.location-title']}}</p>
-                           <p class="text-base">{{translations['form.location-title']}}</p>
+                           <p class="text-base text-[#778391]">{{ translations['form.location-title'] }}</p>
+                           <p class="text-base">{{ translations['form.location-title'] }}</p>
                         </div>
                         <div class="flex flex-col gap-4">
-                           <p class="text-base text-[#778391]">{{translations['form.support-title']}}</p>
-                           <p class="text-base">{{translations['form.support']}}</p>
+                           <p class="text-base text-[#778391]">{{ translations['form.support-title'] }}</p>
+                           <p class="text-base">{{ translations['form.support'] }}</p>
                         </div>
                         <div class="flex flex-col gap-4">
-                           <p class="text-base text-[#778391]">{{translations['form.kontakt-title']}}</p>
-                           <a href="">{{translations['form.kontakt-email']}}</a>
+                           <p class="text-base text-[#778391]">{{ translations['form.kontakt-title'] }}</p>
+                           <a href="">{{ translations['form.kontakt-email'] }}</a>
                            <div class="flex flex-col gap-1">
-                              <a href="tel:+998991654532">{{translations['form.kontakt-phone-1']}}</a>
-                              <a href="tel:+998991654633">{{translations['form.kontakt-phone-2']}}</a>
+                              <a href="tel:+998991654532">{{ translations['form.kontakt-phone-1'] }}</a>
+                              <a href="tel:+998991654633">{{ translations['form.kontakt-phone-2'] }}</a>
                            </div>
                         </div>
                         <div class="flex flex-col gap-4">
-                           <p class="text-base text-[#778391]">{{translations['form.social']}}</p>
+                           <p class="text-base text-[#778391]">{{ translations['form.social'] }}</p>
                            <nav class="flex flex-wrap gap-4">
                               <a href="#" target="_blank">
                                  <img src="/assets/svg/facebook.svg" alt="" />
@@ -103,13 +105,14 @@ const { sendAplication } = applicationStore;
 
 const form = reactive({
    first_name: '',
-   text: '',
+   descriptions: '',
    phone: '',
    agree: false
 });
 const resetForm = () => {
    form.first_name = '';
    form.phone = '';
+   form.descriptions = '';
    form.agree = false;
 };
 
@@ -119,14 +122,15 @@ const isNameValid = computed(() => {
 });
 
 const isFormValid = computed(() => {
-   return form.agree && isNameValid.value && form.phone.trim() !== '' && form.phone.length >= 17;
+   return form.agree && isNameValid.value && form.phone.trim() !== '' && form.phone.length >= 17 && form.descriptions.length > 1;
 });
 
 const submitForm = () => {
    if (isFormValid.value) {
       sendAplication({
          first_name: form.first_name,
-         phone_number: form.phone
+         phone_number: form.phone,
+         descriptions: form.descriptions
       });
       resetForm();
    }

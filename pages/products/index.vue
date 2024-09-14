@@ -4,10 +4,10 @@
       <Title>Products | ENERGY MONTAJ GROUP</Title>
    </Head>
 
-   <div class="bg-[#F5F5F7]">
-      <section class="container py-12">
+   <div>
+      <section class="container py-12 bg-[#F5F5F7] -mt-44">
          <div class="grid lg:grid-cols-[340px_minmax(0,1fr)] gap-6 sm:mt-0 mt-10">
-            <div class="">
+            <div class="mt-44">
                <div class="sticky top-10 border-r border-grey-200 pr-6">
                   <Accordion type="single" class="w-full" collapsible>
                      <h4 @click="setAllProducts" class="cursor-pointer mb-1"
@@ -42,7 +42,7 @@
                   </Accordion>
                </div>
             </div>
-            <div class="">
+            <div class="sm:mt-44 mt-8">
                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                   <div v-for="product in products" data-aos="fade-up">
                      <Card :id="1" :photo="product?.photo[0]" :title="product?.title[$i18n.locale]"
@@ -99,3 +99,4 @@ const setAllProducts = () => {
    products.value = productsData.value;
 }
 </script>
+

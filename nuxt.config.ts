@@ -7,8 +7,8 @@ export default defineNuxtConfig({
          link: [
             {
                rel: 'icon',
-               type: 'image/svg',
-               href: '/favicon.svg'
+               type: 'image/png',
+               href: '/favicon.png'
             }
          ]
       },
@@ -20,7 +20,7 @@ export default defineNuxtConfig({
 
    runtimeConfig: {
       public: {
-         apiBaseUrl: process.env.API_BASE_URL || 'http://admin.fireprotection.uz'
+         apiBaseUrl: process.env.API_BASE_URL || 'https://admin.energymontajgroup.uz'
       }
    },
 
