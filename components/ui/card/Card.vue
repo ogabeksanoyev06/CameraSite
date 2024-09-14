@@ -20,25 +20,26 @@
                      <DialogOverlay @click="isModalOpen = false"
                         class="bg-blackA9 data-[state=open]:animate-overlayShow fixed inset-0 z-30" />
                      <DialogContent aria-describedby="order" @click.prevent
-                        class="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-3xl bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none z-[100]">
+                        class="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-3xl bg-white p-[25px] focus:outline-none z-[100] shadow-sm">
                         <DialogTitle class="text-mauve12 m-0 text-xl font-semibold">
                            {{ translations['main.buy'] }}
                         </DialogTitle>
 
-                        <div class="mt-[10px] mb-5 border-t border-t-[#9A999B]" />
+                        <div class="my-5 border-t border-t-[#EBEBEB]" />
 
                         <div>
                            <label class="text-lg font-medium mb-1 block" for="buy-name">{{
-                              translations['form.input-name'] }} </label>
-                           <input v-model="first_name" id="buy-name" type="text" placeholder="John"
-                              class="w-full h-full text-base sm:text-sm border border-[#EBEBEB] rounded-md bg-transparent transition-300 px-3 py-4 outline-none placeholder:[#BFCAD6] placeholder:text-base"
+                              translations['form.input-order-name'] }} </label>
+                           <input v-model="first_name" id="buy-name" type="text"
+                              :placeholder="translations['form.name-placeholder']"
+                              class="w-full h-full text-base sm:text-sm border border-[#EBEBEB] rounded-xl bg-transparent transition-300 p-4 outline-none placeholder:[#BFCAD6] placeholder:text-base"
                               required />
 
                            <label class="mt-4 text-lg font-medium mb-1 block" for="buy-tel">{{
                               translations['form.input-phone'] }} </label>
-                           <input v-model="phone_number" id="buy-tel" type="text" placeholder="99 123-45-67"
-                              v-maska="'+998 ## ###-##-##'"
-                              class="w-full h-full text-base sm:text-sm border border-[#EBEBEB] rounded-md bg-transparent transition-300 px-3 py-4 outline-none placeholder:[#BFCAD6] placeholder:text-base"
+                           <input v-model="phone_number" id="buy-tel" type="text"
+                              :placeholder="translations['form.phone-placeholder']" v-maska="'+998 ## ###-##-##'"
+                              class="w-full h-full text-base sm:text-sm border border-[#EBEBEB] rounded-xl bg-transparent transition-300 p-4 outline-none placeholder:[#BFCAD6] placeholder:text-base"
                               required />
 
                            <Button :disabled="first_name.length < 1 || phone_number.length < 17" @click="submitForm"
@@ -50,7 +51,7 @@
                         <DialogClose @click="isModalOpen = false"
                            class="mt-3 mr-2 text-grass11 hover:bg-green4 focus:shadow-green7 absolute top-[10px] right-[10px] inline-flex h-[30px] w-[30px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none text-xl"
                            aria-label="Close">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                           <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"
                               fill="none">
                               <path d="M16.2431 7.75786L7.75781 16.2431M16.2431 16.2431L7.75781 7.75781"
                                  stroke="#020105" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />

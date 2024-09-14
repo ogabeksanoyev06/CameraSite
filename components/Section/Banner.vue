@@ -4,7 +4,7 @@
          <div
             class="relative w-full h-[150px] md:h-[300px] xl:h-[340px] transition-300 z-40 rounded-2xl overflow-hidden"
             id="banner">
-            <img :src="`/_nuxt/assets/images/${imageUrl}`" alt="" class="w-full h-full object-cover" />
+            <img :src="imageUrl" alt="" class="w-full h-full object-cover" />
             <div class="absolute bottom-0 left-0 p-3 md:p-6 xl:p-12 w-full gradient">
                <h1 class="text-2xl md:text-3xl xl:text-4xl text-white">{{ title }}</h1>
             </div>
@@ -15,13 +15,21 @@
 </template>
 
 <script setup>
+import bannerImage from '@/assets/images/banner.png';
+import bannerAbout from '@/assets/images/about.png';
+import banner1 from '@/assets/images/banner1.png';
+import banner2 from '@/assets/images/banner2.png';
+import banner3 from '@/assets/images/banner3.png';
+import banner4 from '@/assets/images/banner4.png';
+import banner5 from '@/assets/images/banner5.png';
+
 import { useRoute } from 'vue-router';
 const route = useRoute();
 const localePath = useLocalePath();
 import { useTranslationStore } from '~/stores/translations';
 import { useAppStore } from '~/stores/app';
 
-const imageUrl = ref('banner.png');
+const imageUrl = ref(bannerImage);
 
 const translationsStore = useTranslationStore();
 const appStore = useAppStore();
@@ -38,31 +46,31 @@ const setTitle = () => {
    switch (route.path) {
       case localePath('/about'):
          title.value = translations.value['header.about'];
-         imageUrl.value = "about.png"
+         imageUrl.value = bannerAbout
          break;
       case localePath('/portfolio'):
          title.value = translations.value['header.portfolio'];
-         imageUrl.value = "banner3.png"
+         imageUrl.value = banner3
          break;
       case localePath('/services/1'):
-         imageUrl.value = "banner1.png"
+         imageUrl.value = banner1
          title.value = bannerTitle.value;
          break
       case localePath('/services/2'):
-         imageUrl.value = "banner2.png"
+         imageUrl.value = banner2
          title.value = bannerTitle.value;
          break
       case localePath('/services/3'):
-         imageUrl.value = "banner2.png"
+         imageUrl.value = banner2
          title.value = bannerTitle.value;
          break
       case localePath('/products'):
          title.value = translations.value['header.products'];
-         imageUrl.value = "banner4.png"
+         imageUrl.value = banner4
          break;
       case localePath('/contacts'):
          title.value = translations.value['header.contacts'];
-         imageUrl.value = "banner5.png"
+         imageUrl.value = banner5
          break;
       default:
          title.value = bannerTitle.value;
