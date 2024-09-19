@@ -27,7 +27,9 @@
                      </DropdownMenuTrigger>
                      <DropdownMenuContent>
                         <DropdownMenuItem @click="router.push(localePath('/services/' + service?.id))"
-                           v-for="service in services" class="flex items-center gap-2 cursor-pointer hover:!text-inherit" :class="{'text-primary': $route.path == localePath('/services/' + service?.id)}">
+                           v-for="service in services"
+                           class="flex items-center gap-2 cursor-pointer hover:!text-inherit"
+                           :class="{ 'text-primary': $route.path == localePath('/services/' + service?.id) }">
                            {{ service?.title[locale] }}
                         </DropdownMenuItem>
                      </DropdownMenuContent>
@@ -113,8 +115,7 @@
                               </AccordionTrigger>
                               <AccordionContent class="ml-6" v-for="service in services" :key="service?.id">
                                  <SheetClose as-child>
-                                    <NuxtLink :to="`/services/${service?.id}`" 
-                                       class="rounded-md link p-1">
+                                    <NuxtLink :to="`/services/${service?.id}`" class="rounded-md link p-1">
                                        {{ service?.title[locale] }}</NuxtLink>
                                  </SheetClose>
                               </AccordionContent>
@@ -188,7 +189,7 @@
                            d="M15.5 13.8333V12.4617C15.5 11.7802 15.0851 11.1674 14.4523 10.9143L12.7572 10.2362C11.9524 9.91429 11.0352 10.263 10.6475 11.0383L10.5 11.3333C10.5 11.3333 8.41666 10.9167 6.75 9.25C5.08333 7.58333 4.66667 5.5 4.66667 5.5L4.96168 5.35249C5.73698 4.96484 6.08571 4.04761 5.76378 3.2428L5.08574 1.54768C4.83263 0.914919 4.21979 0.5 3.53828 0.5L2.16667 0.5C1.24619 0.5 0.5 1.24619 0.5 2.16667C0.5 9.53046 6.46954 15.5 13.8333 15.5C14.7538 15.5 15.5 14.7538 15.5 13.8333Z"
                            fill="white" />
                      </svg>
-                     <span>+99871 207-04-07</span>
+                     <span>{{ translations['form.kontakt-phone-1'] }}</span>
                   </Button>
                </a>
             </div>
