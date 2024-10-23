@@ -4,7 +4,7 @@
          <div class="flex flex-col xl:grid xl:grid-cols-3 gap-8 xl:gap-[164px] py-10">
             <div class="flex flex-col lg:grid grid-flow-col auto-cols-fr gap-4 xl:col-span-2">
                <NuxtLink to="/">
-                  <img src="/assets/svg/logo_dark.svg" alt="logo">
+                  <img src="/assets/svg/logo_dark.svg" alt="logo" />
                </NuxtLink>
                <nav class="flex flex-col gap-4 sm:gap-6">
                   <NuxtLink :to="localePath('/about')" class="text-base font-medium hover:text-primary transition-300"> {{ translations['header.about'] }} </NuxtLink>
@@ -51,8 +51,9 @@
                </div>
             </div>
          </div>
-         <div class="border-t border-b py-6">
+         <div class="border-t border-b py-6 flex max-sm:flex-col flex-row items-center justify-between gap-2 text-center">
             <p class="text-base">{{ translations['footer.bottom'] }}</p>
+            <a href="https://ndc.uz/" target="_blank" class="text-base">Powered by NDC</a>
          </div>
       </div>
    </footer>

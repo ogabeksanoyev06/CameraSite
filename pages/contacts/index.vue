@@ -1,5 +1,4 @@
 <template>
-
    <Head>
       <Title>Contacts | ENERGY MONTAJ GROUP</Title>
    </Head>
@@ -11,34 +10,43 @@
                <form class="flex flex-col gap-6" @submit.prevent="submitForm">
                   <h2 class="text-2xl font-medium">{{ translations['form.contact-title'] }}</h2>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                     <input type="text" :placeholder="translations['form.input-name']" v-model="form.first_name"
-                        pattern="[A-Za-zА-Яа-яЁё']+" maxlength="30"
+                     <input
+                        type="text"
+                        :placeholder="translations['form.input-name']"
+                        v-model="form.first_name"
+                        pattern="[A-Za-zА-Яа-яЁё']+"
+                        maxlength="30"
                         class="w-full h-full text-base sm:text-sm border-b border-grey-100 bg-transparent transition-300 py-3 outline-none placeholder:[#9A999B] placeholder:text-base"
-                        required />
+                        required
+                     />
                      <ClientOnly>
-                        <input type="text" :placeholder="translations['form.input-phone']" v-model="form.phone"
+                        <input
+                           type="text"
+                           :placeholder="translations['form.input-phone']"
+                           v-model="form.phone"
                            v-maska="'+998 ## ###-##-##'"
                            class="w-full h-full text-base sm:text-sm border-b border-grey-100 bg-transparent transition-300 py-3 outline-none placeholder:[#9A999B] placeholder:text-base"
-                           required />
+                           required
+                        />
                      </ClientOnly>
                   </div>
-                  <textarea type="text" :placeholder="translations['form.input-message']" v-model="form.descriptions"
+                  <textarea
+                     type="text"
+                     :placeholder="translations['form.input-message']"
+                     v-model="form.descriptions"
                      class="w-full h-full text-base sm:text-sm border-b border-grey-100 bg-transparent transition-300 py-3 outline-none placeholder:[#9A999B] placeholder:text-base"
-                     required />
+                     required
+                  />
                   <div class="flex sm:items-center justify-between sm:flex-row flex-col gap-5">
                      <div class="flex items-center space-x-2 max-w-[300px]">
-                        <Checkbox id="agree" v-model="form.agree" @update:checked="form.agree = !form.agree"
-                           :checked="form.agree" />
-                        <Label for="agree" class="text-base leading-none"> {{ translations['form.confirm'] }}
-                        </Label>
+                        <Checkbox id="agree" v-model="form.agree" @update:checked="form.agree = !form.agree" :checked="form.agree" />
+                        <Label for="agree" class="text-base leading-none"> {{ translations['form.confirm'] }} </Label>
                      </div>
                      <Button type="submit" :disabled="!isFormValid">
                         <span class="text-base"> {{ translations['form.send'] }} </span>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path d="M5.83301 5.83337L9.16634 10L5.83301 14.1667" stroke="white" stroke-width="1.5"
-                              stroke-linecap="round" stroke-linejoin="round" />
-                           <path d="M10.833 5.83337L14.1663 10L10.833 14.1667" stroke="white" stroke-width="1.5"
-                              stroke-linecap="round" stroke-linejoin="round" />
+                           <path d="M5.83301 5.83337L9.16634 10L5.83301 14.1667" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                           <path d="M10.833 5.83337L14.1663 10L10.833 14.1667" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                      </Button>
                   </div>
@@ -81,7 +89,7 @@
                         </div>
                      </div>
                      <NuxtLink to="/" class="mt-10 ml-auto">
-                        <img src="@/assets/svg/logo_dark.svg" alt="logo">
+                        <img src="@/assets/svg/logo_dark.svg" alt="logo" />
                      </NuxtLink>
                   </div>
                </div>
@@ -97,7 +105,6 @@ import { useAplicationStore } from '~/stores/application.js';
 
 const translationsStore = useTranslationStore();
 const { translations } = storeToRefs(translationsStore);
-
 
 const applicationStore = useAplicationStore();
 
