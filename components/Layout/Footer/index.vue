@@ -26,8 +26,8 @@
                      {{ translations['footer.phone'] }}
                   </h3>
                   <div>
-                     <a href="tel:+998712070408" class="block">+998 71 207-04-08</a>
-                     <a href="tel:+998712070407" class="block">+998 71 207-04-08</a>
+                     <a :href="`tel:${translations['footer.phone1']}`"> {{ translations['footer.phone1'] }}</a>
+                     <a :href="`tel:${translations['footer.phone2']}`" class="block"> {{ translations['footer.phone2'] }}</a>
                   </div>
                </div>
                <div class="flex flex-col gap-4">
